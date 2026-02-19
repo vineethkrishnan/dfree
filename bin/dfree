@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# dfree entry point
+# This script bootstraps the application by sourcing necessary files and starting the core loop.
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+
+# shellcheck source=src/boot/bootstrap.sh
+source "$PROJECT_ROOT/src/boot/bootstrap.sh"
+
+main "$@"
