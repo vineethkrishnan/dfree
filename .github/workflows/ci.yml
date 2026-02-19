@@ -11,7 +11,7 @@ jobs:
     name: ShellCheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
         with:
@@ -21,17 +21,17 @@ jobs:
     name: shfmt
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run shfmt
-        uses: mfinelli/setup-shfmt@v2
+        uses: mfinelli/setup-shfmt@v3
       - run: shfmt -d -i 2 -ci .
 
   test:
     name: Unit Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Bats
-        uses: bats-core/bats-action@2.0.0
+        uses: bats-core/bats-action@3.0.0
       - name: Run Tests
         run: bats tests
