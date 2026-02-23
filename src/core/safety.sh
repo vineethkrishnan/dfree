@@ -24,5 +24,15 @@ is_safe_path() {
     return 1
   fi
 
+  # Check explicitly excluded paths
+  if [ "${#DFREE_EXCLUDED_PATHS[@]}" -gt 0 ]; then
+    for excluded in "${DFREE_EXCLUDED_PATHS[@]}"; do
+      # Note: Basic string matching; a robust implementation would use realpath
+      if [[ "$path" == "$excluded"* ]]; then
+        return 1
+      fi
+    done
+  fi
+
   return 0
 }

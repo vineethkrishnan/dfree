@@ -18,8 +18,13 @@ case "$OS_TYPE" in
     ;;
 esac
 
-# shellcheck source=src/adapters/runtime/docker.sh
+# Load adapters
+# shellcheck source=/dev/null
 source "${PROJECT_ROOT}/src/adapters/runtime/docker.sh"
+# shellcheck source=/dev/null
+source "${PROJECT_ROOT}/src/adapters/runtime/dev_caches.sh"
+# shellcheck source=/dev/null
+source "${PROJECT_ROOT}/src/adapters/config/parser.sh"
 
 # shellcheck source=src/boot/version.sh
 source "${PROJECT_ROOT}/src/boot/version.sh"

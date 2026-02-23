@@ -48,6 +48,9 @@ app_start() {
 
   ui_header "dfree detected"
   
+  log_info "Loading user configuration..."
+  load_user_config
+
   analyze_system
   clean_system "$simulate"
 }

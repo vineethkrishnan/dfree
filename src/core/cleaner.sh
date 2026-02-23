@@ -40,6 +40,34 @@ clean_system() {
     fi
   done
 
+  local dev_caches=()
+  while IFS= read -r line; do
+    [ -z "$line" ] && continue
+    dev_caches+=("$line")
+  done <<< "$(get_dev_cache_paths)"
+
+  for path in "${dev_caches[@]}"; do
+    if is_safe_path "$path"; then
+      if ui_confirm "Clean developer cache at ${path}?"; then
+        os_delete_path "$path" "$simulate"
+      fi
+    else
+      log_warn "Skipping developer cache: $path"
+    fi
+  done
+  
+  if [ "${#DFREE_CUSTOM_PATHS[@]}" -gt 0 ]; then
+    for path in "${DFREE_CUSTOM_PATHS[@]}"; do
+      if is_safe_path "$path"; then
+        if ui_confirm "Clean custom path at ${path}?"; then
+          os_delete_path "$path" "$simulate"
+        fi
+      else
+        log_warn "Skipping unsafe custom path: $path"
+      fi
+    done
+  fi
+
   if ui_confirm "Empty Trash?"; then
     os_empty_trash "$simulate"
   fi

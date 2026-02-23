@@ -11,6 +11,8 @@
 -   **Cross-platform**: Works on Linux and macOS.
 -   **Docker Awareness**: Detects and prunes Docker usage.
 -   **Detailed Analysis**: Break down usage by category (System, Docker, Logs, Cache).
+-   **Developer Caches**: Finds and cleans common caches (npm, yarn, pip, cargo).
+-   **Custom Rules**: Supported via `~/.dfreerc` to customize targets and directories.
 -   **Hexagonal Architecture**: Built for stability and testability.
 
 ## Installation
@@ -30,6 +32,19 @@ dfree
 Options:
 -   `--simulate`: Run in simulation mode (no deletion).
 -   `--help`: Show help message.
+
+## Configuration (.dfreerc)
+
+You can customize `dfree` behavior by creating a `~/.dfreerc` file. This is evaluated as a Bash script, allowing you to define paths to include or exclude from cleaning sequences.
+
+```bash
+# ~/.dfreerc
+# Array of additional paths you want `dfree` to ask about cleaning
+DFREE_CUSTOM_PATHS=("/path/to/my/custom/cache" "/var/tmp")
+
+# Array of paths that should NEVER be deleted
+DFREE_EXCLUDED_PATHS=("/path/to/my/custom/cache/keep")
+```
 
 ## Contributing
 
