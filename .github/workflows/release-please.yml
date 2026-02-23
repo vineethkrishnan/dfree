@@ -14,7 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v4
-        with:
-          release-type: simple
-          package-name: dfree
-          extra-files: src/boot/version.sh
+        # Action automatically looks for release-please-config.json and .release-please-manifest.json
