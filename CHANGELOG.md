@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0](https://github.com/vineethkrishnan/dfree/compare/v1.1.0...v1.2.0) (2026-03-03)
+
+
+### Features
+
+* **cache:** add support for Go and Gradle caches ([b14612e](https://github.com/vineethkrishnan/dfree/commit/b14612e6d8e15fc38d0a895a172a1f5817152478))
+
 ## [1.1.0](https://github.com/vineethkrishnan/dfree/compare/v1.0.0...v1.1.0) (2026-02-23)
 
 
