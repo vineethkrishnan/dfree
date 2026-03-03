@@ -31,6 +31,18 @@ get_dev_cache_paths() {
     paths+=("${HOME}/.cargo/registry/cache")
   fi
 
+  # go build cache
+  if [ -d "${HOME}/Library/Caches/go-build" ]; then
+    paths+=("${HOME}/Library/Caches/go-build")
+  elif [ -d "${HOME}/.cache/go-build" ]; then
+    paths+=("${HOME}/.cache/go-build")
+  fi
+
+  # gradle cache
+  if [ -d "${HOME}/.gradle/caches" ]; then
+    paths+=("${HOME}/.gradle/caches")
+  fi
+
   for p in "${paths[@]}"; do
     echo "$p"
   done
