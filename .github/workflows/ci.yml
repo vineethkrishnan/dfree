@@ -16,6 +16,8 @@ jobs:
         uses: ludeeus/action-shellcheck@master
         with:
           scandir: './src'
+        env:
+          SHELLCHECK_OPTS: -x
   
   shfmt:
     name: shfmt
