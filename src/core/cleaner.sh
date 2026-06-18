@@ -28,7 +28,7 @@ clean_system() {
   while IFS= read -r line; do
     [ -z "$line" ] && continue
     cache_paths+=("$line")
-  done <<< "$(get_system_cache_paths)"
+  done <<<"$(get_system_cache_paths)"
 
   for path in "${cache_paths[@]}"; do
     if is_safe_path "$path"; then
@@ -44,7 +44,7 @@ clean_system() {
   while IFS= read -r line; do
     [ -z "$line" ] && continue
     dev_caches+=("$line")
-  done <<< "$(get_dev_cache_paths)"
+  done <<<"$(get_dev_cache_paths)"
 
   for path in "${dev_caches[@]}"; do
     if is_safe_path "$path"; then
@@ -55,7 +55,7 @@ clean_system() {
       log_warn "Skipping developer cache: $path"
     fi
   done
-  
+
   if [ "${#DFREE_CUSTOM_PATHS[@]}" -gt 0 ]; then
     for path in "${DFREE_CUSTOM_PATHS[@]}"; do
       if is_safe_path "$path"; then
