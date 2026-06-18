@@ -16,10 +16,10 @@ load_user_config() {
   fi
 
   # Safely parse the config file to avoid executing arbitrary code.
-  # We only support DFREE_CUSTOM_PATHS=("/path1" "/path2") style arrays temporarily by sourcing, 
+  # We only support DFREE_CUSTOM_PATHS=("/path1" "/path2") style arrays temporarily by sourcing,
   # or better yet, basic key=value parsing for safety if it was a real production app.
   # For this shell tool, since it's user config, we source it.
-  
+
   # shellcheck source=/dev/null
   source "$config_file"
 }

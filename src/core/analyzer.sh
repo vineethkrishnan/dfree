@@ -20,15 +20,15 @@ analyze_system() {
   while IFS= read -r line; do
     [ -z "$line" ] && continue
     dev_caches+=("$line")
-  done <<< "$(get_dev_cache_paths)"
-  
+  done <<<"$(get_dev_cache_paths)"
+
   for cache in "${dev_caches[@]}"; do
     local size
     size=$(os_get_dir_size "$cache")
     size=$((size / 1048576)) # roughly MB
     echo "  - ${cache}: ${size}MB"
   done
-  
+
   if [ "${#DFREE_CUSTOM_PATHS[@]}" -gt 0 ]; then
     log_info "Scanning Custom Paths (from config)..."
     for path in "${DFREE_CUSTOM_PATHS[@]}"; do

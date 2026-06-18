@@ -10,8 +10,7 @@ is_safe_path() {
     "/" | "/bin" | "/usr" | "/etc" | "/boot" | "/System" | "/Applications")
       return 1
       ;;
-    *)
-      ;;
+    *) ;;
   esac
 
   # Must be absolute path

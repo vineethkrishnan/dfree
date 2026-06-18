@@ -47,7 +47,7 @@ app_start() {
   done
 
   ui_header "dfree detected"
-  
+
   log_info "Loading user configuration..."
   load_user_config
 
