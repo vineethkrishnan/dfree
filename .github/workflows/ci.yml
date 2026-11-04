@@ -34,6 +34,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Install Bats
-        uses: bats-core/bats-action@3.0.0
+        uses: bats-core/bats-action@4.1.0
       - name: Run Tests
         run: bats tests
